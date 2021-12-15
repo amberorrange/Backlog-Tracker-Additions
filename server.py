@@ -18,6 +18,7 @@ login_manager.init_app(app)
 
 app.jinja_env.undefined = StrictUndefined
 
+
 RAWG_API_KEY = os.environ['RAWG_KEY']
 NEWS_API_KEY = os.environ['NEWS_KEY']
 
