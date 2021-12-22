@@ -167,6 +167,7 @@ def create_review(user_id, game_id, body, score, completion_time, platform, genr
 
     return review
 
+
 def get_reviews_by_user_id(user_id):
     """Returns all reviews from a user"""
 
