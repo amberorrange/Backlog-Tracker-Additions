@@ -1,3 +1,5 @@
+from server import bcrypt
+
 """CRUD Operations"""
 
 from model import db, User, Game, Genre, Review, Backlog, Platform, connect_to_db
@@ -15,10 +17,12 @@ def check_login(email, password):
 def create_user(fname, lname, email, password):
     """Creates and returns a new user"""
 
+    encrypted_pw = bcrypt.generate_password_hash(password).decode('utf-8') 
+
     if fname == "" or lname == "" or email == "" or password == "":
         return None
 
-    user = User(fname=fname, lname=lname, email=email, password=password)
+    user = User(fname=fname, lname=lname, email=email, password=encrypted_pw)
 
     db.session.add(user)
     db.session.commit()

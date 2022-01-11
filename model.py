@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
     fname = db.Column(db.String(30), nullable=False)
     lname = db.Column(db.String(30), nullable=False)                    
     email = db.Column(db.String(50), unique=True, nullable=False)
-    password = db.Column(db.String, nullable=False)
+    password = db.Column(db.String(60), nullable=False)
 
     backlogs = db.relationship('Backlog', backref='user') #primary key to backlogs foreign key
     reviews = db.relationship('Review', backref='user') #primaray key to reviews foreign key
