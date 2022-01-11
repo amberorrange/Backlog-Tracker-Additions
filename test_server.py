@@ -1,10 +1,10 @@
 import server
-import unittest
-from model import db, connect_to_db, User, Game, Genre, Review, Backlog, Platform, example_data
-import crud
+from unittest import TestCase
+# from model import db, connect_to_db, User, Game, Genre, Review, Backlog, Platform, example_data
 
 
-class FlaskTests(unittest.TestCase):
+
+class FlaskTests(TestCase):
     """Integration tests for Flask server."""
 
     def setUp(self):
@@ -12,22 +12,21 @@ class FlaskTests(unittest.TestCase):
         server.app.config['TESTING'] = True
 
         # Connect to test database
-        connect_to_db(server.app, "postgresql:///testdb")
+        # connect_to_db(app, "postgresql:///testdb")
 
         # Create tables and add sample data
-        db.create_all()
-        example_data()
+        # db.create_all()
+        # example_data()
 
     def tearDown(self):
         """Completes after each test"""
 
-        db.session.close()
-        db.drop.all()
+        # db.session.close()
+        # db.drop.all()
 
 
     def test_home(self):
-        client = server.app.test_client()
-        result = client.get('/')
+        result = self.client.get('/')
         self.assertEqual(result.status_code, 200)
 
 
