@@ -30,9 +30,9 @@ body{
 } */
 
 
-/* .inline { anything that needs to be inline */
-    /* display: inline;
-} */
+.inline { /*anything that needs to be inline  */
+    display: inline;
+}
 
 
 
@@ -256,9 +256,11 @@ USER DETAILS */
     margin-top: 3%;
     margin-left: 5%
 } */
-/* .del-btn {
-    background-color: white ;
-} */
+.del-btn {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}
 
 /* .del-question {
     margin-bottom: 20px; */
@@ -275,9 +277,18 @@ USER DETAILS */
 
 
 /* DELETE Game */
-/* .del-game {
-    margin: auto
-}  */
+.del-game {
+    /* margin: auto;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
 
 
 
@@ -496,11 +507,6 @@ USER DETAILS */
 }
 
 
-.game-des-card {
-    background-color: black;
-    border-color: white;
-}
-
 
 
 
@@ -511,7 +517,6 @@ USER DETAILS */
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
     
 }
-
 
 .add-game-card {
     border: none;
@@ -536,15 +541,15 @@ USER DETAILS */
     border-color: white;
 }
 
-
-
 .game-des-card {
     border: none;
+    background-color: black;
+    border-color: white;
+
 }
 
 
-
-
+/* charts */
  .chart-container{ /*for charts used with chart.js  */
     padding-top: 20px;
     padding-left: 30px;
@@ -555,25 +560,24 @@ USER DETAILS */
     margin-left: 20px;
 }
 
-
 #chart-hours-played {
     background-color: transparent;
     position: fixed;
     left: 10px;
 }
 
-
 .pie-chart {
     margin: auto
 }
 
 
+
+/* navbar */
 .nav-item:hover{
     transform: scale(1.1);
     transition: transform .8s ease;
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
 }
-
 
 .navbar-brand:hover{
     transform: scale(1.1);
@@ -581,17 +585,37 @@ USER DETAILS */
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
 }
 
-
+/* 
 .review-cards {
     background-color: transparent;
     color: white;
     text-align: center;
-    /* border-color: white; */
+    border-color: white;
     margin-top: 2%;
+} */
+
+
+/* about page */
+.about-page {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    margin-top: 200px;
 }
 
-/* .review-cards:hover{
-    transform: scale(1.1);
-    transition: transform 0.9s ease;
-    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
-} */
+
+/* edit backlog entry form */
+.edit-backlog-form {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.inside-edit-backlog {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}

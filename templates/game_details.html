@@ -101,6 +101,8 @@
         
                         <h2>Description:</h2> <p>{{ data['description'] | safe }}</p>
 
+                        <h4><a style="color: white;" href="{{ data['website'] }}">See Website</a></h4>
+
                         <h3 class="mt-4 mb-2">Available on:</h3>
                         {% for platform in data['platforms'] %}
                         <li> {{ platform['platform']['name'] }}</li>

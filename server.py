@@ -18,9 +18,6 @@ login_manager.init_app(app)
 
 app.jinja_env.undefined = StrictUndefined
 
-
-
-
 RAWG_API_KEY = os.environ['RAWG_KEY']
 NEWS_API_KEY = os.environ['NEWS_KEY']
 
@@ -562,6 +559,14 @@ def get_hours_by_platform():
     data = crud.get_sums_of_category(hours_played_by_platform, "platforms")
 
     return jsonify(data)
+
+
+@app.route('/about')
+@login_required
+def about():
+    """Returns the about page"""
+    return render_template("about.html")
+
 
 if __name__ == '__main__':
     connect_to_db(app)
