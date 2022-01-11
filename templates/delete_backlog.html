@@ -12,11 +12,11 @@
             <h4>Which game would you like to remove?</h4>
 
             <form action="/delete_backlog_confirmation" class="inline" method="POST">
-                <select class="form-select-sm mt-4" name="deleted_backlog">
+                <select class="form-select mt-4" name="deleted_backlog"> 
                         {% for backlog in backlogs %}
                         <option value="{{ backlog.backlog_id }}">{{ backlog.game.title }}</option>
                     {% endfor %}
-                </select>
+                </select><br>
                 <input value="Delete" class="btn btn-sm del-btn" type="submit">
             </form> 
     
