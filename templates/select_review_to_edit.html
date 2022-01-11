@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Review {% endblock %} 
+
+{% block content %}
+    <div class="container-fluid">
+        
+        <div class="del-game center-text  col-7">
+            <h4>Select a review to edit</h4>
+
+            <form action="/edit_review_form" class="inline" method="POST">
+                <select class="form-select mt-4" name="review"> 
+                        {% for review in reviews %}
+                        <option value="{{ review.review_id }}">{{ review.game.title }}</option>
+                    {% endfor %}
+                </select><br>
+                <input class="btn btn-sm del-btn" type="submit">
+            </form> 
+    
+            <button onclick="location.href='/view_backlog'" class="inline btn btn-sm del-btn" type="button">Cancel</button> 
+
+        </div>
+       
+    </div>
+
+{% endblock %} 

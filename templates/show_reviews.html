@@ -5,21 +5,25 @@
 
 {% block content %}
 
-    <div class="container-fluid">
+    <div style="padding-bottom: 100px;" class="container-fluid">
 
-        <h1 style="margin-left: 10px;">{{ current_user.fname }}'s Reviews</h1>
+        {% for message in get_flashed_messages() %}
+        <p style="margin-left: 10px;" class="flash"  id="homepage-flash">{{ message }}</p>
+        {% endfor %}
+
+        <h1 style="margin-left: 10px;">{{ current_user.fname }}'s Reviews</h1> <br>
+
+        <button onclick="location.href='/view_backlog'" type="button" class="btn mb-5" style="background-color: transparent; color: white;border-color: white; float: left; margin-left: 10px;">Back</button> 
+        <!-- <a class="btn" style="float: right; margin-left:10px; background-color: transparent; color: white;border-color: white;" href="/select_review_to_delete">Delete Review</a>
+        <a class="btn" style="float: right; margin-left:10px; background-color: transparent; color: white;border-color: white;" href="/select_review_to_edit">Edit Review</a> -->
+        <a class="btn" style="float: left; margin-left:10px; background-color: transparent; color: white;border-color: white;" href="/add_review">Add Review</a>
 
         <div class="row row-cols-1 g-4">
-
-            
-
             {% for review in reviews %}
                     <div class="col">
-
                         <div class="card review-cards">
                             <div class="card-body"> 
                                 <h3 class="card-subtitle mb-3" >{{ review.game.title}}</h3>
-
                                 <div class="card-text">
                                     <p>Score: {{ review.score}}</p>   
                                     <p>Played On: {{ review.platform }}</p>
@@ -33,11 +37,6 @@
             {% endfor %}
 
         </div>
-
-        <a class="btn mb-5" style="margin-left:10px; background-color: transparent; color: white;border-color: white;" href="/add_review">Add Review</a>
-
-        <button onclick="location.href='/view_backlog'" type="button" class="btn mb-5" style="background-color: transparent; color: white;border-color: white;">Back</button> 
-
     </div>
 
     {% endblock %}

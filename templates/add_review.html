@@ -5,18 +5,18 @@
 {% block content %}
 
     <div class="del-game">
-        <h4>Which game would you like to review?</h4>
+        <h4>Which game would you like to review?</h4><br>
 
         <form action="/review_game" class="inline">
-            <select name="game_to_review">
+            <select class="form-select" name="game_to_review">
                 {% for backlog in backlogs %}
                     <option value="{{ backlog.game.game_id }}">{{ backlog.game.title }}</option>
                 {% endfor %}
-            </select>
-            <input type="submit">
+            </select> <br>
+            <input class="sign-in-btn btn" type="submit">
         </form>
         
-        <button onclick="location.href='/view_backlog'" type="button">Cancel</button> 
+        <button  class="sign-in-btn btn" onclick="location.href='/view_backlog'" type="button">Cancel</button> 
     </div>
 
 {% endblock %}

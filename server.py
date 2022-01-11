@@ -472,6 +472,13 @@ def show_reviews():
     reviews = current_user.reviews
     return render_template("show_reviews.html", reviews=reviews)
 
+@app.route('/select_review_to_edit')
+@login_required
+def select_review_to_edit():
+    """page with drop down to select what reviews you want to edit"""
+    reviews = current_user.reviews
+    return render_template('select_review_to_edit.html', reviews=reviews)
+
 
 @app.route('/edit_review_form', methods=["POST"])
 @login_required
@@ -513,6 +520,14 @@ def confirm_edited_review():
 
     return redirect("/view_reviews")
 
+
+@app.route('/select_review_to_delete')
+@login_required
+def select_review_to_delete():
+    """page with drop down to select what reviews you want to delete"""
+    reviews = current_user.reviews
+    return render_template('select_review_to_delete.html', reviews=reviews)
+    
 
 @app.route('/delete_review', methods=["POST"])
 @login_required

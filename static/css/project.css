@@ -24,10 +24,6 @@ body{
 
 
 
-/* .review_display { used for each review in show_reviews.html */
-    /* padding-top: 10px;
-    padding-bottom: 5px;
-} */
 
 
 .inline { /*anything that needs to be inline  */
@@ -274,29 +270,7 @@ USER DETAILS */
 } */
 
 
-
-
-/* DELETE Game */
-.del-game {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} 
-
-
-
-
-
-
-
-
-
-
-
-
 /* login page! */
-
 .login-text{
     text-align: center;
 }
@@ -308,6 +282,11 @@ USER DETAILS */
     margin-right: auto;
 }
 
+.sign-in-btn{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+}
 
 /* SIGNUP PAGE */
 #sign-up-width {
@@ -335,7 +314,7 @@ USER DETAILS */
 
 
 
-
+/* see backlogs page */
 .filters{
     position:fixed;
     /* top: 305px; */
@@ -346,14 +325,12 @@ USER DETAILS */
    
 }
 
-
 .filter-reset-btn {
     background-color: white;
     margin-top: 15px;
     color:black;
     text-align: center;
 }
-
 
 
 .backlog-cards {
@@ -363,31 +340,21 @@ USER DETAILS */
     border-color: white;
 }
 
-
-
 .card-img-top{
     border-color: white;
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
 
-
 .card-title-homepage {
     font-size: large;
 
 }
 
-
 .backlog-card-height {
     height: 220px;
     width:300px;
 }
-
-/* .container-fluid {
-    margin-left: 10px;
-}  */
-
-
 
 .bl-card:hover{
     transform: scale(1.1);
@@ -395,8 +362,6 @@ USER DETAILS */
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
     
 }
-
-
 
 .stretched-link::after {
     position: absolute;
@@ -411,9 +376,7 @@ USER DETAILS */
 }
 
 
-
-
-
+/* add game */
 .add-game-search-bar {
     background-color: black;
     border: none;
@@ -434,7 +397,6 @@ USER DETAILS */
    display: inline;
 }
 
-
 .back-to-search{
     color: white;
     background: transparent;
@@ -442,29 +404,11 @@ USER DETAILS */
     position: absolute; right:1%;
 }
 
-
 .search-results-card:hover{
     transform: scale(1.1);
     transition: transform 0.2s ease;
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);   
 }
-
-
-
-
-.sign-in-btn{
-    background-color: transparent;
-    color: white;
-    border-color: white;
-
-}
-
-
-
-
-
-
-
 
 .game-details-card {
     text-align: center;
@@ -488,22 +432,15 @@ USER DETAILS */
     max-height: 400px;
 }
 
-
 .card-title-game-details {
     font-size: large;
    
 }
 
-
 .backlog-card-height {
     height: 220px;
     width:300px;
 }
-
-
-
-
-
 
 .game-details-card:hover{
     transform: scale(1.1);
@@ -565,7 +502,6 @@ USER DETAILS */
 }
 
 
-
 /* navbar */
 .nav-item:hover{
     transform: scale(1.1);
@@ -579,14 +515,6 @@ USER DETAILS */
     box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
 }
 
-/* 
-.review-cards {
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    border-color: white;
-    margin-top: 2%;
-} */
 
 
 /* about page */
@@ -613,3 +541,22 @@ USER DETAILS */
     width: 50%;
     text-align: center;
 }
+
+/* DELETE backlog entry */
+.del-game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+
+
+/* reviews */
+.review-cards {
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    margin-left: 25%;
+    margin-right: 25%;
+} 
+

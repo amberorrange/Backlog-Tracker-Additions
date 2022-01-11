@@ -5,41 +5,40 @@
 
 {% block content %}
 
-    <h2>Review of {{ game.title }}</h2>
+    <div class="edit-backlog-form ">
+        <h2>Review of {{ game.title }}</h2><br>
 
-    <form action="/review_confirmation" method="POST">
+        <div class="inside-edit-backlog" style="text-align: left;">
+            <form action="/review_confirmation" method="POST">
+            
 
-        <p>Score: <input type="number" name="score" min="1" max="10"> </p>
+                    <p>Score (1-10): <br> <input class="form-control" type="number" name="score" min="1" max="10"> </p>
 
-        <p>Hours Played: <input type="number" name="completion_time" min="1" max="500">  </p>
+                    <p >Hours Played: <input class="form-control" type="number" name="completion_time" min="1" max="500">  </p>
 
-        Platform: 
-        <select name="platforms" >
-            <option></option>
-            {% for platform in platforms %}
-                <option value="{{ platform.name}}">{{ platform.name }}</option>
-            {% endfor %}
-        </select>
+                    Platform: <br> 
+                    <select class="form-control" name="platforms" >
+                        <option></option>
+                        {% for platform in platforms %}
+                            <option value="{{ platform.name}}">{{ platform.name }}</option>
+                        {% endfor %}
+                    </select> <br>
 
-        Genre:
-        <select name="genres" >
-            <option></option>
-            {% for genre in genres %}
-                <option value="{{ genre.name }}">{{ genre.name }}</option>
-            {% endfor %}
-        </select>
+                    Genre: <br> 
+                    <select class="form-control" name="genres" >
+                        <option></option>
+                        {% for genre in genres %}
+                            <option value="{{ genre.name }}">{{ genre.name }}</option>
+                        {% endfor %}
+                    </select> <br> 
 
-        <input type="hidden" name="game_id" value="{{ game.game_id }}">
-
-        <p>Add review, notes, or comments: </p> 
-        
-        <textarea rows="8" cols="50" name="body"> </textarea>
-
-        <p><input type="submit" value="Add Review"></p>
-
-    </form>
-
-    <button onclick="location.href='/view_backlog'" type="button">Cancel</button> 
-
+                    <input type="hidden" name="game_id" value="{{ game.game_id }}">
+                    <p>Review:</p>
+                    <textarea  class="" rows="8" cols="50" name="body"> </textarea><br> <br>
+                    <input  style="float: left;" class="btn del-btn inline" type="submit" value="Add Review">
+            </form> 
+             <button style="float: left; margin-left: 5px;" class="btn del-btn inline" onclick="location.href='/view_backlog'" type="button">Cancel</button> 
+        </div>
+    </div>
 
 {% endblock %}
