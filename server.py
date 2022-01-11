@@ -15,7 +15,7 @@ from jinja2 import StrictUndefined
 app = Flask(__name__) 
 app.secret_key = "dev"
 
-bcrypt = Bcrypt(app)
+# bcrypt = Bcrypt(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
