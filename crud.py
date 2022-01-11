@@ -1,4 +1,4 @@
-# from server import bcrypt
+from server import bcrypt
 
 """CRUD Operations"""
 
@@ -11,18 +11,22 @@ def get_user_by_id(id):
 def check_login(email, password):
     """Returns a user if their login information exists in db"""
 
-    user = User.query.filter( (User.email == email) & (User.password == password) ).first()
-    return user
+    user = User.query.filter((User.email == email)).first()
+
+    if user and bcrypt.check_password_hash(user.password, password):
+        return user
+
+    return None
      
 def create_user(fname, lname, email, password):
     """Creates and returns a new user"""
 
-    # encrypted_pw = bcrypt.generate_password_hash(password).decode('utf-8') 
+    encrypted_pw = bcrypt.generate_password_hash(password).decode('utf-8') 
 
     if fname == "" or lname == "" or email == "" or password == "":
         return None
 
-    user = User(fname=fname, lname=lname, email=email, password=password)
+    user = User(fname=fname, lname=lname, email=email, password=encrypted_pw)
 
     db.session.add(user)
     db.session.commit()
@@ -57,8 +61,10 @@ def change_account_info(current_email, fname, lname, email, password):
 
     if fname == "" or lname == "" or email == "" or password == "":
         return None
+    
+    encrypted_pw = bcrypt.generate_password_hash(password).decode('utf-8')
 
-    user = User.query.filter(User.email==current_email).update({User.fname: fname, User.lname: lname, User.email: email, User.password: password})
+    user = User.query.filter(User.email==current_email).update({User.fname: fname, User.lname: lname, User.email: email, User.password: encrypted_pw})
     db.session.commit()
 
     return user

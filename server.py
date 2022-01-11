@@ -4,7 +4,7 @@ from flask import (Flask, render_template, request, flash, session,
 
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
-# from flask_bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 
 from model import connect_to_db, User, db, Platform, Genre, Review, Backlog, Game
 import os
@@ -15,7 +15,7 @@ from jinja2 import StrictUndefined
 app = Flask(__name__) 
 app.secret_key = "dev"
 
-# bcrypt = Bcrypt(app)
+bcrypt = Bcrypt(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
