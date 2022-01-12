@@ -1,0 +1,3 @@
+export RAWG_KEY="5c888682e05f44af9b9437aa5a364842"
+ 
+export NEWS_KEY="9a80bb317b4a444283eb635afa3acd9e"
