@@ -1,5 +1,5 @@
 env
-secrets.sh
+secret.sh
 __pycache__/
 
 
