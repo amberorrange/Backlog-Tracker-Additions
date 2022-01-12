@@ -59,12 +59,12 @@ for platform in platforms:
 	db.session.commit()
 
 #create 10 users
-for n in range(10):
-	fname = f"test{n + 1}"
-	lname = f"test{n + 1}"
-	email = f"test{n + 1}@test.test"
-	password = "testpw!!"
+# for n in range(10):
+# 	fname = f"test{n + 1}"
+# 	lname = f"test{n + 1}"
+# 	email = f"test{n + 1}@test.test"
+# 	password = "testpw!!"
 
-	crud.create_user(fname, lname, email, password)
+	# crud.create_user(fname, lname, email, password)
 
 
