@@ -1,19 +1,22 @@
 """Server for my app."""
+from socket import timeout
 from flask import (Flask, render_template, request, flash, session,
                    redirect, jsonify)
 
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-
 from flask_bcrypt import Bcrypt
+from flask_caching import Cache
 
-from model import connect_to_db, User, db, Platform, Genre, Review, Backlog, Game
+from model import connect_to_db
 import os
 import crud 
 import requests
 from jinja2 import StrictUndefined
 
+cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})
 app = Flask(__name__) 
 app.secret_key = "dev"
+cache.init_app(app)
 
 bcrypt = Bcrypt(app)
 
@@ -31,6 +34,7 @@ def load_user(user_id):
     return crud.get_user_by_id(user_id)
 
 @app.route('/')
+@cache.cached(timeout=2000)
 def homepage():
     """View Homepage of Backlog Tracker-they can login or create an account"""
 
@@ -124,7 +128,7 @@ def register_user():
     if current_user.is_authenticated:
         flash("Already logged in.")
         return redirect("/view_backlog")
-
+    
     fname = request.form.get("fname")
     lname = request.form.get("lname")
     email = request.form.get("email")
@@ -217,7 +221,7 @@ def search_results():
 
     if genre == "":
         #add ability to search without genre field
-        payload =  {'key': RAWG_API_KEY,'search': user_query}
+        payload =  {'key': RAWG_API_KEY,'search': user_query, 'page_size': 50}
     else:
         payload = {'key': RAWG_API_KEY,'search': user_query, 'genres': genre}
 
